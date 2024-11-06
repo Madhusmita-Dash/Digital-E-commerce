@@ -9,7 +9,7 @@ import java.lang.*;
 @Data
 @Table(name="users")
 
-public class Users {
+public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

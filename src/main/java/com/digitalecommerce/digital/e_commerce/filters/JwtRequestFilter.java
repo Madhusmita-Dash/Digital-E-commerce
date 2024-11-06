@@ -1,5 +1,6 @@
 package com.digitalecommerce.digital.e_commerce.filters;
 
+import com.digitalecommerce.digital.e_commerce.services.jwt.UserDetailsServiceImpl;
 import com.digitalecommerce.digital.e_commerce.utils.JwtUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -20,7 +21,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class JwtRequestFilter extends OncePerRequestFilter {
 
-    private final UserDetailsService userDetailsService;
+    private final UserDetailsServiceImpl userDetailsService;
     private final JwtUtil jwtUtil;
 
     @Override
