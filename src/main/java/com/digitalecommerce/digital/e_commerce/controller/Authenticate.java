@@ -71,10 +71,10 @@ public class Authenticate {
                             .put("token", TOKEN_PREFIX + token)
                             .toString()
             );
-            // Set response header with token
+
+            response.addHeader("Access-Control-Expose-Headers", "Authorization");
+            response.addHeader("Access-Control-Allow-Headers", "Authorization, X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept, X-Custom-header");
             response.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
-        } else {
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "User not found");
         }
     }
 
