@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<AppUser, Integer> {
+public interface UserRepository extends JpaRepository<AppUser, Long> {
 
     // Custom query method to find an AppUser by email
     Optional<AppUser> findFirstByEmail(String email);
