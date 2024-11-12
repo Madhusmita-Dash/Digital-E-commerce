@@ -49,8 +49,13 @@ public class WebSecurityConfiguration {
 
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+<<<<<<< HEAD
         AuthenticationManagerBuilder authBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
         return authBuilder.build();
+=======
+
+        return http.getSharedObject(AuthenticationManagerBuilder.class).build();
+>>>>>>> 7f33dd35f7c25e30ee41451743b0d7f26a937701
     }
 
     @Bean
