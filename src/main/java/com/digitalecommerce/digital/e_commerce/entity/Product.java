@@ -1,5 +1,6 @@
 package com.digitalecommerce.digital.e_commerce.entity;
 
+import com.digitalecommerce.digital.e_commerce.entity.Category;
 import com.digitalecommerce.digital.e_commerce.dto.ProductDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -27,7 +28,7 @@ public class Product {
     private byte[] image;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "category_Id", nullable = false)
+    @JoinColumn(name = "category_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private Category category;
@@ -42,10 +43,4 @@ public class Product {
         productDto.setCategoryId(category.getId());
         return productDto;
     }
-
-
-
-
-
-
 }
