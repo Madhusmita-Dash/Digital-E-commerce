@@ -31,8 +31,9 @@ public class WebSecurityConfiguration {
         http.cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/authenticate", "/sign-up", "/order/**").permitAll()
-                        .requestMatchers("/api/**").authenticated()
+                        .requestMatchers("/authenticate", "/sign-up", "/order/**").permitAll() // Public endpoints
+                        .requestMatchers("/api/admin/category").permitAll() // Make this endpoint public
+                        .requestMatchers("/api/**").authenticated() // Authenticate all other API endpoints
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -41,6 +42,7 @@ public class WebSecurityConfiguration {
 
         return http.build();
     }
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
