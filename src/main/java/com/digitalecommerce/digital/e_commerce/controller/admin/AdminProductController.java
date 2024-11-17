@@ -6,10 +6,7 @@ import com.digitalecommerce.digital.e_commerce.services.admin.adminproduct.Admin
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +25,11 @@ public class AdminProductController {
     @GetMapping("/products")
     public ResponseEntity<List<ProductDto>> getAllProducts() {
         List<ProductDto> ProductDtos = adminProductService.getAllProducts();
+        return ResponseEntity.ok(ProductDtos);
+    }
+    @GetMapping("/search/{name}")
+    public ResponseEntity<List<ProductDto>> getAllProductsByName(@PathVariable String name) {
+        List<ProductDto> ProductDtos = adminProductService.getAllProductByName(name);
         return ResponseEntity.ok(ProductDtos);
     }
 }
