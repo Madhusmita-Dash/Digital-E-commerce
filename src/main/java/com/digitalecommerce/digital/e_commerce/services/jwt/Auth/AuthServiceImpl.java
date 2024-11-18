@@ -3,10 +3,7 @@ package com.digitalecommerce.digital.e_commerce.services.jwt.Auth;
 import com.digitalecommerce.digital.e_commerce.dto.SignupRequest;
 import com.digitalecommerce.digital.e_commerce.dto.UserDto;
 import com.digitalecommerce.digital.e_commerce.entity.AppUser;
-import com.digitalecommerce.digital.e_commerce.entity.Order;
 import com.digitalecommerce.digital.e_commerce.enums.UserRole;
-import com.digitalecommerce.digital.e_commerce.enums.OrderStatus;
-import com.digitalecommerce.digital.e_commerce.repository.OrderRepository;
 import com.digitalecommerce.digital.e_commerce.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +20,6 @@ public class AuthServiceImpl implements AuthService {
     private UserRepository userRepository;
 
     @Autowired
-    private OrderRepository orderRepository;
-
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
     public UserDto createUser(SignupRequest signupRequest) {
@@ -38,18 +32,11 @@ public class AuthServiceImpl implements AuthService {
 
         AppUser createdUser = userRepository.save(user);
 
-        Order order = new Order();
-        order.setAmount(0L);
-        order.setTotalAmount(0L);
-        order.setDiscount(0L);
-        order.setUser(createdUser);
-        order.setOrderStatus(OrderStatus.Pending);
-        orderRepository.save(order);
-
+        // Set UserDto properties based on the created user
         UserDto userDto = new UserDto();
         userDto.setId(createdUser.getId());
 
-
+        // Return the created UserDto
         return userDto;
     }
 
