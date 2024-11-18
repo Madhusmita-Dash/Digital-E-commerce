@@ -5,7 +5,7 @@ import com.digitalecommerce.digital.e_commerce.dto.SignupRequest;
 import com.digitalecommerce.digital.e_commerce.dto.UserDto;
 import com.digitalecommerce.digital.e_commerce.entity.AppUser;
 import com.digitalecommerce.digital.e_commerce.repository.UserRepository;
-import com.digitalecommerce.digital.e_commerce.services.Auth.AuthService;
+import com.digitalecommerce.digital.e_commerce.services.jwt.Auth.AuthService;
 import com.digitalecommerce.digital.e_commerce.utils.JwtUtil;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

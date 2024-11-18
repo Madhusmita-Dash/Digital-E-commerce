@@ -1,15 +1,16 @@
-package com.digitalecommerce.digital.e_commerce.services.Auth;
+package com.digitalecommerce.digital.e_commerce.services.jwt.Auth;
 
 import com.digitalecommerce.digital.e_commerce.dto.SignupRequest;
 import com.digitalecommerce.digital.e_commerce.dto.UserDto;
 import com.digitalecommerce.digital.e_commerce.entity.AppUser;
 import com.digitalecommerce.digital.e_commerce.entity.Order;
-import com.digitalecommerce.digital.e_commerce.enums.OrderStatus;
 import com.digitalecommerce.digital.e_commerce.enums.UserRole;
+import com.digitalecommerce.digital.e_commerce.enums.OrderStatus;
 import com.digitalecommerce.digital.e_commerce.repository.OrderRepository;
 import com.digitalecommerce.digital.e_commerce.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
