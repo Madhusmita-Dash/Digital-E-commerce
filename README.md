@@ -1,4 +1,4 @@
-<h1>🎨 Customizable E-Commerce Platform for Digital Products 🎨</h1> 
+<h1>🎨 Customizable E-Commerce Platform TechTrove for Digital Products 🎨</h1> 
 An innovative platform for selling digital products like software, e-books, music and many more, featuring:
 
 * 🌟 Fully customizable storefront built with Angular
